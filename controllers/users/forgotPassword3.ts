@@ -118,7 +118,7 @@ WHERE email = ?;
       } catch (error) {
         connection.query("ROLLBACK;", (rollbackError) => {
           // Handle rollback error
-          console.error(rollbackError); 
+          console.error(rollbackError);
         });
         res.status(500).json({ error: "Internal server error" });
       } finally {

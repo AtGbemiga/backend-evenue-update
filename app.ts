@@ -35,6 +35,7 @@ import storyRouter from "./routes/story/story";
 import groupRouter from "./routes/groups/groups";
 import chatRouter from "./routes/chat/chat";
 import payStackRouter from "./routes/paystack/paystack";
+import adminRouter from "./routes/admin/admin";
 import pool from "./db/db";
 
 // Attach WebSocket server to the HTTP server
@@ -100,6 +101,7 @@ app.use("/api/v1/story", storyRouter);
 app.use("/api/v1/groups", groupRouter);
 app.use("/api/v1/chat", chatRouter);
 app.use("/api/v1/paystack", payStackRouter);
+app.use("/api/v1/admin", adminRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Evenue API is running...");
