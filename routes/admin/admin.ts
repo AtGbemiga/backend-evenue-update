@@ -22,6 +22,8 @@ import { deleteGroupPostComment } from "../../controllers/users/admin/deleteGrou
 import { verifyEventService } from "../../controllers/users/admin/verifyService";
 import { unVerifyEventService } from "../../controllers/users/admin/unVerify";
 import { blackListEvent } from "../../controllers/users/admin/eventBlacklist";
+import { addAdvert } from "../../controllers/users/admin/addAdvert";
+import { getAdvert } from "../../controllers/users/getAdvert";
 
 const router = Router();
 
@@ -52,5 +54,7 @@ router.delete(
 router.get("/verifyEventService/:event_services_id", verifyEventService);
 router.get("/unVerifyEventService/:event_services_id", unVerifyEventService);
 router.get("/blackListEvent/:event_id/:action", blackListEvent);
+router.post("/addAdvert", addAdvert);
+router.get("/getAdverts", getAdvert);
 
 export default router;
