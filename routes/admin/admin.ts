@@ -24,6 +24,7 @@ import { unVerifyEventService } from "../../controllers/users/admin/unVerify";
 import { blackListEvent } from "../../controllers/users/admin/eventBlacklist";
 import { addAdvert } from "../../controllers/users/admin/addAdvert";
 import { getAdvert } from "../../controllers/users/getAdvert";
+import { deleteAdvert } from "../../controllers/users/admin/deleteAdvert";
 
 const router = Router();
 
@@ -56,5 +57,6 @@ router.get("/unVerifyEventService/:event_services_id", unVerifyEventService);
 router.get("/blackListEvent/:event_id/:action", blackListEvent);
 router.post("/addAdvert", addAdvert);
 router.get("/getAdverts", getAdvert);
+router.delete("/deleteAd/:ad_id", deleteAdvert);
 
 export default router;

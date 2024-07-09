@@ -1,12 +1,17 @@
 import express, { Request, Response } from "express";
-import pool from "../../db/db";
+import pool from "../../../db/db";
 import { RowDataPacket } from "mysql2";
-export const getAdvert: express.RequestHandler = async (
+export const deleteAdvert: express.RequestHandler = async (
   req: Request,
   res: Response
 ) => {
+  const { ad_id } = req.params;
+  if (!ad_id) {
+    res.status(400).json({ error: "Missing ad_id" });
+  }
   pool.query<RowDataPacket[]>(
-    "SELECT id, img, url FROM ad_section LIMIT 3;",
+    "DELETE FROM ad_section WHERE id = ?;",
+    [ad_id],
     (err, results) => {
       if (err) {
         res.status(500).json({ error: "Internal server error" });
@@ -15,7 +20,7 @@ export const getAdvert: express.RequestHandler = async (
         res.status(404).json({ error: "No results found" });
         return;
       }
-      res.status(200).json({ results });
+      res.status(200).json({ message: "successful" });
     }
   );
 };
